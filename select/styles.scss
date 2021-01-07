@@ -1,0 +1,105 @@
+.app {
+    padding-top: 5rem;
+    display: flex;
+    justify-content: center;
+}
+  
+.wrap{
+    width: 500px;
+}
+
+$heigth: 40px;
+.select {
+    width: 100%;
+    position: relative;
+
+    &.open {
+
+        .select__dropdown {
+            z-index: 10;
+            position: absolute;
+            display: block;
+            left: 0;
+            right: 0;
+            animation-name: fadeIn;
+            animation-duration: .4s;
+        }
+
+        .select__input {
+            border-bottom: none;
+
+            & .fa-chevron-down {
+                transform: rotate(180deg);
+            }
+        }
+
+    }
+
+    &__label {
+        height: $heigth;
+        display: flex;
+        align-items: center;
+        padding: 0 1rem;
+        cursor: pointer;
+    }
+
+
+
+    &__input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        height: $heigth;
+        border: 1px solid #ccc;
+        border-radius: .4rem;
+        cursor: pointer;
+        
+
+        & .fa-chevron-down{
+            transform: rotate(0deg);
+            transition: transform .2s linear;
+        }       
+    }
+
+    &__dropdown {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: .4rem;
+        max-height: 200px;
+        overflow-y: auto;
+        box-shadow: 2px 3px 5px rgba(0,0,0,.3);
+        display: none;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__item {
+        padding: 1rem;
+        border-bottom: 1px solid #ccc;
+
+        &:hover,
+        &:focus {
+            background-color: #ccc;
+            transition: .15s background-color ease-in;
+        }
+
+        &.selected {
+            background-color: bisque;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
